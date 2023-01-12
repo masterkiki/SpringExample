@@ -13,8 +13,8 @@ public class ReviewBO {
 	@Autowired
 	private ReviewDAO reviewDAO;
 	
-	public Review getReview() {
-		Review review = reviewDAO.selectReview();
+	public Review getReview(int id) {
+		Review review = reviewDAO.selectReview(id);
 		return review;
 	}
 	
