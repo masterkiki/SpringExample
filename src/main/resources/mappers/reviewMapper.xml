@@ -22,4 +22,57 @@
 		WHERE
 			`id` = #{id}	
 	</select>
+
+	 <!--  인서트 델리트 업데이트는 리절트타입 인트 고정이라 안잡아준다 -->
+	<insert id="insertReview" parameterType="map"> 
+		INSERT INTO
+		`new_review`
+		(
+			`storeId`
+			, `menu`
+			, `userName`
+			, `point`
+			, `review`
+			, `createdAt`
+			, `updatedAt`
+		)
+		VALUES
+		(
+			#{storeId}
+			, #{menu}
+			, #{userName}
+			, #{point}
+			, #{review}
+			, now()
+			, now()
+		)
+	</insert>
+	
+	
+	<insert id="insertReviewByObject" parameterType="com.pks.spring.ex.mybatis.model.Review">
+		INSERT INTO
+		`new_review`
+		(
+			 `storeId`
+			, `menu`
+			, `userName`
+			, `point`
+			, `review`
+			, `createdAt`
+			, `updatedAt`
+		)
+		VALUES
+		(
+			#{storeId}
+			, #{menu}
+			, #{userName}
+			, #{point}
+			, #{review}
+			, now()
+			, now()		
+		)
+	</insert>
+	
+	
+	
 </mapper>
