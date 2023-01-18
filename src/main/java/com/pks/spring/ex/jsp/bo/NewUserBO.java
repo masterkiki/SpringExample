@@ -29,4 +29,9 @@ public class NewUserBO {
 	}
 	
 	
+	public int addUserByObject(NewUser user) {
+		return newUserDAO.inserUserByObject(user);
+		
+	}
+	
 }
