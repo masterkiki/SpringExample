@@ -65,9 +65,14 @@ public class JSTLController {
 		
 		Date now = new Date();
 		model.addAttribute("now", now);
-		String dataString = "2023/01/19 21:44:10";
-		model.addAttribute("dataString", dataString);
+		String dateString = "2023/01/19 21:44:10";
+		model.addAttribute("dateString", dateString);
 		return "jstl/ex03";
+	}
+	
+	@GetMapping("/ex04")
+	public String ex04() {
+		return "/jstl/ex04";
 	}
 
 }
