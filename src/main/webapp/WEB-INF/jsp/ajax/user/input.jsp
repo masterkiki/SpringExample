@@ -12,7 +12,7 @@
 	<!--  <form method="get" action="/ajax/user/add" id="saveForm">-->
 		<label>이름</label> <input type="text" name="name" id="nameInput">
 		<label>생년월일</label> <input type="text" name="yyyymmdd" id="yyyymmddInput">
-		<label>이메일</label> <input type="text" name="email" id="eamilInput">
+		<label>이메일</label> <input type="text" name="email" id="emailInput">
 		<button type="button" id="saveBtn">저장</button>
 	<!-- 	</form>  -->
 	
@@ -24,12 +24,36 @@
 				let yyyymmdd = $("#yyyymmddInput").val();
 				let email = $("#emailInput").val();
 				
+				if(name == ""){
+					alert("이름을 입력하세요");
+					return;
+				}
+				
+				if(yyyymmdd == ""){
+					alert("생년월일을 입력하세요");
+					return;
+				} 
+				
+				if(email == ""){
+					alert("이메일을 입력하세요");
+					return;
+				}
+				
+				
 				$.ajax({
 					type:"get"
 					, url:"/ajax/user/add"
-					, data:{"name":name, "yyyymmdd":yyyymmddd, "email":email}
+					, data:{"name":name, "yyyymmdd":yyyymmdd, "email":email}
+				
+					//response옵션
 					, success:function(data){
-						alert(data.result);
+						//{"result":"success"}
+						if(data.result = "success"){
+							//리스트 페이지로 이동
+							location.href = "/ajax/user/list"
+						} else{
+							alert("저장 실패");
+						}
 					} 
 					, error:function(){
 						alert("저장 에러!");

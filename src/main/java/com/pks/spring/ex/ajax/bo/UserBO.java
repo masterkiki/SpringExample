@@ -23,10 +23,10 @@ public class UserBO {
 	
 	public int addUser(
 			String name
-			, String yyyyymmdd
+			, String yyyymmdd
 			, String email
 			) {
-		return userDAO.insertUser(name, yyyyymmdd, email);
+		return userDAO.insertUser(name, yyyymmdd, email);
 	}
 	
 	
