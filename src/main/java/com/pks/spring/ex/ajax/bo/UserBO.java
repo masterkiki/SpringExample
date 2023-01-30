@@ -29,5 +29,17 @@ public class UserBO {
 		return userDAO.insertUser(name, yyyymmdd, email);
 	}
 	
+	public boolean isDuplicateEmail(String email) {
+		
+		int count = userDAO.selectCountEmail(email);
+		// count 가 0이면 중복아님
+		if(count == 0) {
+			return false;
+		} else {// count 가 0이 아니면 중복
+			return true;
+		}
+	
+	}
+	
 	
 }
